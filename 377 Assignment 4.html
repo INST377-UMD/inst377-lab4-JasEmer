@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>Jasmine Lab 4</title>
+        <link rel = "stylesheet" href = "377 Assignment 4.css">
+    </head>
+    <body>
+        <h1 id = "text-to-add-to">Jasmine INST377 Lab 4</h1>
+        <div class = "content-box" id = "nameBox">
+            <form name = names onsubmit="hey()">
+                <label>Name:</label>
+                <input type="text" id = "contactName" placeholder="Enter your name" required>
+                <button onsubmit = "hey()">Alert Me!</button>
+            </form>
+            <script type="text/javascript">
+                function hey() {
+                    const name = document.getElementById('contactName').value;
+                    alert(`Hi, ${name}!`);
+                }
+            </script>
+        </div>
+
+        <div class = "content-box" id = "colorBox">
+            <button onclick = "changeColor()">Change Color</button>
+            <script type="text/javascript">
+                function changeColor(){
+                if(document.body.style.backgroundColor === "pink"){
+                    document.body.style.backgroundColor = "green";
+                } else {
+                document.body.style.backgroundColor = "pink";
+            }
+        }
+            </script>
+        </div>
+
+        <div class="content-box" id = "validateBox">
+            <form name="testTester" onsubmit="return formValidation()">
+                <label for="tester">Text Tester:</label>
+                <input type="text" name="tester" id="tester" placeholder="Enter Text Here">
+                <input type="submit" value="Validate Text">
+            </form>
+            <script type="text/javascript">
+                function formValidation() {
+                    const validationRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                    if (validationRegex.test(document.testTester.tester.value)) {
+                        alert('How about....nah :(');
+                        return false;
+                    }
+                    return true;
+                }
+            </script>
+        </div>
+        
+        <div class = "content-box" id = "addTextBox">
+            <button onclick = "addText()">Add Text</button>
+            <script type="text/javascript">
+                function addText(){
+                    const heading = document.getElementById("text-to-add-to");
+                    if (heading.textContent == "Jasmine INST377 Lab 4") {
+                        heading.textContent += " - Text added";
+                    } else {
+                        heading.textContent = "Jasmine INST377 Lab 4";
+                    }
+                }
+            </script>
+        </div>
+
+    </body>
+</html>
